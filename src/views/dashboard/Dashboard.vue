@@ -7,36 +7,37 @@
           <CCardBody>
             <CRow>
               <CCol :sm="5">
-                <h4 id="traffic" class="card-title mb-0">Traffic</h4>
-                <div class="small text-body-secondary">January 2021</div>
+                <h4 id="traffic" class="card-title mb-0">Player Stats</h4>
+                <!-- <div class="small text-body-secondary">January 2021</div> -->
               </CCol>
               <CCol :sm="7" class="d-none d-md-block">
-                <CButton color="primary" class="float-end">
+                <!-- <CButton color="primary" class="float-end">
                   <CIcon icon="cil-cloud-download" />
-                </CButton>
-                <CButtonGroup
-                  class="float-end me-3"
-                  role="group"
-                  aria-label="Basic outlined example"
-                >
-                  <CButton color="secondary" variant="outline">Day</CButton>
+                </CButton> -->
+                <CButtonGroup class="float-end me-3" role="group" aria-label="Basic outlined example">
+                  <!-- <CButton color="secondary" variant="outline">Day</CButton> -->
                   <CButton color="secondary" variant="outline" active>Month</CButton>
-                  <CButton color="secondary" variant="outline">Year</CButton>
+                  <!-- <CButton color="secondary" variant="outline">Year</CButton> -->
                 </CButtonGroup>
+
+                <!-- <CFormSelect aria-label="Default select example" :options="[
+                  'Open this select menu',
+                  { label: 'One', value: '1' },
+                  { label: 'Two', value: '2' },
+                  { label: 'Three', value: '3', disabled: true }
+                ]">
+                </CFormSelect> -->
+
               </CCol>
             </CRow>
             <CRow>
               <MainChart style="height: 300px; max-height: 300px; margin-top: 40px" />
             </CRow>
           </CCardBody>
-          <CCardFooter>
-            <CRow
-              :xs="{ cols: 1, gutter: 4 }"
-              :sm="{ cols: 2 }"
-              :lg="{ cols: 4 }"
-              :xl="{ cols: 5 }"
-              class="mb-2 text-center"
-            >
+
+          <!-- <CCardFooter>
+            <CRow :xs="{ cols: 1, gutter: 4 }" :sm="{ cols: 2 }" :lg="{ cols: 4 }" :xl="{ cols: 5 }"
+              class="mb-2 text-center">
               <CCol>
                 <div class="text-body-secondary">Visits</div>
                 <div class="fw-semibold text-truncate">29.703 Users (40%)</div>
@@ -63,10 +64,12 @@
                 <CProgress class="mt-2" :value="40" thin :precision="1" />
               </CCol>
             </CRow>
-          </CCardFooter>
+          </CCardFooter> -->
         </CCard>
       </CCol>
     </CRow>
+
+
     <WidgetsStatsD class="mb-4" />
     <CRow>
       <CCol :md="12">
@@ -75,7 +78,7 @@
           <CCardBody>
             <CRow>
               <CCol :sm="12" :lg="6">
-                <CRow>
+                <!-- <CRow>
                   <CCol :xs="6">
                     <div class="border-start border-start-4 border-start-info py-1 px-3 mb-3">
                       <div class="text-body-secondary small">New Clients</div>
@@ -88,13 +91,10 @@
                       <div class="fs-5 fw-semibold">22,643</div>
                     </div>
                   </CCol>
-                </CRow>
+                </CRow> -->
                 <hr class="mt-0" />
-                <div
-                  v-for="item in progressGroupExample1"
-                  :key="item.title"
-                  class="progress-group mb-4"
-                >
+                <!-- Player comparison stats -->
+                <div v-for="item in progressGroupExample1" :key="item.title" class="progress-group mb-4">
                   <div class="progress-group-prepend">
                     <span class="text-body-secondary small">{{ item.title }}</span>
                   </div>
@@ -105,7 +105,7 @@
                 </div>
               </CCol>
               <CCol :sm="12" :lg="6">
-                <CRow>
+                <!-- <CRow>
                   <CCol :xs="6">
                     <div class="border-start border-start-4 border-start-warning py-1 px-3 mb-3">
                       <div class="text-body-secondary small">Pageviews</div>
@@ -118,7 +118,7 @@
                       <div class="fs-5 fw-semibold">49,123</div>
                     </div>
                   </CCol>
-                </CRow>
+                </CRow> -->
                 <hr class="mt-0" />
                 <div v-for="item in progressGroupExample2" :key="item.title" class="progress-group">
                   <div class="progress-group-header">
@@ -133,7 +133,7 @@
 
                 <div class="mb-5"></div>
 
-                <div v-for="item in progressGroupExample3" :key="item.title" class="progress-group">
+                <!-- <div v-for="item in progressGroupExample3" :key="item.title" class="progress-group">
                   <div class="progress-group-header">
                     <CIcon :icon="item.icon" class="me-2" size="lg" />
                     <span class="title">{{ item.title }}</span>
@@ -145,11 +145,12 @@
                   <div class="progress-group-bars">
                     <CProgress thin :value="item.percent" color="success" />
                   </div>
-                </div>
+                </div> -->
               </CCol>
             </CRow>
             <br />
-            <CTable align="middle" class="mb-0 border" hover responsive>
+
+            <!-- <CTable align="middle" class="mb-0 border" hover responsive>
               <CTableHead class="text-nowrap">
                 <CTableRow>
                   <CTableHeaderCell class="bg-body-secondary text-center">
@@ -201,7 +202,8 @@
                   </CTableDataCell>
                 </CTableRow>
               </CTableBody>
-            </CTable>
+            </CTable> -->
+
           </CCardBody>
         </CCard>
       </CCol>
@@ -229,29 +231,29 @@ export default {
   },
   setup() {
     const progressGroupExample1 = [
-      { title: 'Monday', value1: 34, value2: 78 },
-      { title: 'Tuesday', value1: 56, value2: 94 },
-      { title: 'Wednesday', value1: 12, value2: 67 },
-      { title: 'Thursday', value1: 43, value2: 91 },
-      { title: 'Friday', value1: 22, value2: 73 },
-      { title: 'Saturday', value1: 53, value2: 82 },
-      { title: 'Sunday', value1: 9, value2: 69 },
+      { title: 'Shots', value1: 34, value2: 78 },
+      { title: 'Interceptions', value1: 56, value2: 94 },
+      { title: 'Successful Tackles', value1: 12, value2: 67 },
+      { title: 'Progressive Passes', value1: 43, value2: 91 },
+      { title: 'Minutes PLayed', value1: 22, value2: 73 },
+      { title: 'Chances Created', value1: 53, value2: 82 },
+      { title: 'Touches', value1: 9, value2: 69 },
     ]
     const progressGroupExample2 = [
-      { title: 'Male', icon: 'cil-user', value: 53 },
-      { title: 'Female', icon: 'cil-user-female', value: 43 },
+      { title: 'Player 1', icon: 'cil-user', value: 53 },
+      { title: 'Player 2', icon: 'cil-user-female', value: 43 },
     ]
-    const progressGroupExample3 = [
-      {
-        title: 'Organic Search',
-        icon: 'cib-google',
-        percent: 56,
-        value: '191,235',
-      },
-      { title: 'Facebook', icon: 'cib-facebook', percent: 15, value: '51,223' },
-      { title: 'Twitter', icon: 'cib-twitter', percent: 11, value: '37,564' },
-      { title: 'LinkedIn', icon: 'cib-linkedin', percent: 8, value: '27,319' },
-    ]
+    // const progressGroupExample3 = [
+    //   {
+    //     title: 'Organic Search',
+    //     icon: 'cib-google',
+    //     percent: 56,
+    //     value: '191,235',
+    //   },
+    //   { title: 'Facebook', icon: 'cib-facebook', percent: 15, value: '51,223' },
+    //   { title: 'Twitter', icon: 'cib-twitter', percent: 11, value: '37,564' },
+    //   { title: 'LinkedIn', icon: 'cib-linkedin', percent: 8, value: '27,319' },
+    // ]
     const tableExample = [
       {
         avatar: { src: avatar1, status: 'success' },
@@ -347,7 +349,7 @@ export default {
       tableExample,
       progressGroupExample1,
       progressGroupExample2,
-      progressGroupExample3,
+      // progressGroupExample3,
     }
   },
 }

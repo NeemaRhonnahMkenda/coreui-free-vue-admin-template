@@ -54,7 +54,7 @@ export default {
     return {
       logo,
       sygnet,
-      sidebarUnfoldable: computed(() => store.state.sidebarUnfoldable),
+      // sidebarUnfoldable: computed(() => store.state.sidebarUnfoldable),
       sidebarVisible: computed(() => store.state.sidebarVisible),
     }
   },

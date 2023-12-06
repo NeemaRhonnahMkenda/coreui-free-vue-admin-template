@@ -1,5 +1,5 @@
 <template>
-  <CChart type="line" :data="data" :options="options" ref="mainChartRef" />
+  <CChart type="radar" :data="data" :options="options" ref="mainChartRef" />
 </template>
 
 <script>
@@ -17,10 +17,10 @@ export default {
   setup() {
     const mainChartRef = ref()
     const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Shots', 'Interceptions', 'Aerials', 'Minutes Played', 'Touches', 'Passes', 'Successful Tackles'],
       datasets: [
         {
-          label: 'My First dataset',
+          label: 'My Single Dataset',
           backgroundColor: `rgba(${getStyle('--cui-info-rgb')}, .1)`,
           borderColor: getStyle('--cui-info'),
           pointHoverBackgroundColor: getStyle('--cui-info'),
@@ -36,31 +36,6 @@ export default {
           ],
           fill: true,
         },
-        {
-          label: 'My Second dataset',
-          backgroundColor: 'transparent',
-          borderColor: getStyle('--cui-success'),
-          pointHoverBackgroundColor: getStyle('--cui-success'),
-          borderWidth: 2,
-          data: [
-            random(50, 200),
-            random(50, 200),
-            random(50, 200),
-            random(50, 200),
-            random(50, 200),
-            random(50, 200),
-            random(50, 200),
-          ],
-        },
-        {
-          label: 'My Third dataset',
-          backgroundColor: 'transparent',
-          borderColor: getStyle('--cui-danger'),
-          pointHoverBackgroundColor: getStyle('--cui-danger'),
-          borderWidth: 1,
-          borderDash: [8, 5],
-          data: [65, 65, 65, 65, 65, 65, 65],
-        },
       ],
     }
 
@@ -72,28 +47,13 @@ export default {
         },
       },
       scales: {
-        x: {
+        radar: {
           grid: {
             color: getStyle('--cui-border-color-translucent'),
             drawOnChartArea: false,
           },
           ticks: {
             color: getStyle('--cui-body-color'),
-          },
-        },
-        y: {
-          border: {
-            color: getStyle('--cui-border-color-translucent'),
-          },
-          grid: {
-            color: getStyle('--cui-border-color-translucent'),
-          },
-          ticks: {
-            beginAtZero: true,
-            color: getStyle('--cui-body-color'),
-            max: 250,
-            maxTicksLimit: 5,
-            stepSize: Math.ceil(250 / 5),
           },
         },
       },
@@ -114,25 +74,15 @@ export default {
       document.documentElement.addEventListener('ColorSchemeChange', () => {
         if (mainChartRef.value) {
           mainChartRef.value.chart,
-            (options.scales.x.grid.borderColor = getStyle(
+            (options.scales.radar.grid.borderColor = getStyle(
               '--cui-border-color-translucent',
             ))
           mainChartRef.value.chart,
-            (options.scales.x.grid.color = getStyle(
+            (options.scales.radar.grid.color = getStyle(
               '--cui-border-color-translucent',
             ))
           mainChartRef.value.chart,
-            (options.scales.x.ticks.color = getStyle('--cui-body-color'))
-          mainChartRef.value.chart,
-            (options.scales.y.grid.borderColor = getStyle(
-              '--cui-border-color-translucent',
-            ))
-          mainChartRef.value.chart,
-            (options.scales.y.grid.color = getStyle(
-              '--cui-border-color-translucent',
-            ))
-          mainChartRef.value.chart,
-            (options.scales.y.ticks.color = getStyle('--cui-body-color'))
+            (options.scales.radar.ticks.color = getStyle('--cui-body-color'))
           mainChartRef.value.chart.update()
         }
       })
