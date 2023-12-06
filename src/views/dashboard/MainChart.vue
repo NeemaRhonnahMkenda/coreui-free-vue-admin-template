@@ -17,14 +17,14 @@ export default {
   setup() {
     const mainChartRef = ref()
     const data = {
-      labels: ['Shots', 'Interceptions', 'Aerials', 'Minutes Played', 'Touches', 'Passes', 'Successful Tackles'],
+      labels: ['Shots', 'Interceptions', 'Aerials', 'Minutes Played', 'Touches', 'Passes', 'Successful Tacke'],
       datasets: [
         {
-          label: 'My Single Dataset',
+          label: 'Single Player Data',
           backgroundColor: `rgba(${getStyle('--cui-info-rgb')}, .1)`,
           borderColor: getStyle('--cui-info'),
           pointHoverBackgroundColor: getStyle('--cui-info'),
-          borderWidth: 2,
+          // borderWidth: 2,
           data: [
             random(50, 200),
             random(50, 200),
@@ -46,17 +46,6 @@ export default {
           display: false,
         },
       },
-      scales: {
-        radar: {
-          grid: {
-            color: getStyle('--cui-border-color-translucent'),
-            drawOnChartArea: false,
-          },
-          ticks: {
-            color: getStyle('--cui-body-color'),
-          },
-        },
-      },
       elements: {
         line: {
           tension: 0.4,
@@ -74,15 +63,25 @@ export default {
       document.documentElement.addEventListener('ColorSchemeChange', () => {
         if (mainChartRef.value) {
           mainChartRef.value.chart,
-            (options.scales.radar.grid.borderColor = getStyle(
+            (options.scales.x.grid.borderColor = getStyle(
               '--cui-border-color-translucent',
             ))
           mainChartRef.value.chart,
-            (options.scales.radar.grid.color = getStyle(
+            (options.scales.x.grid.color = getStyle(
               '--cui-border-color-translucent',
             ))
           mainChartRef.value.chart,
-            (options.scales.radar.ticks.color = getStyle('--cui-body-color'))
+            (options.scales.x.ticks.color = getStyle('--cui-body-color'))
+          mainChartRef.value.chart,
+            (options.scales.y.grid.borderColor = getStyle(
+              '--cui-border-color-translucent',
+            ))
+          mainChartRef.value.chart,
+            (options.scales.y.grid.color = getStyle(
+              '--cui-border-color-translucent',
+            ))
+          mainChartRef.value.chart,
+            (options.scales.y.ticks.color = getStyle('--cui-body-color'))
           mainChartRef.value.chart.update()
         }
       })

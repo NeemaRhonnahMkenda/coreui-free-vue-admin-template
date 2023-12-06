@@ -10,12 +10,12 @@
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
   
   export default {
-    name: 'MainChartExample',
+    name: 'comparisonChartExample',
     components: {
       CChart,
     },
     setup() {
-      const mainChartRef = ref()
+      const comparisonChartref = ref()
       const data = {
         labels: ['Shots', 'Interceptions', 'Aerials', 'Minutes Played', 'Touches', 'Passes', 'Successful Tack'],
         datasets: [
@@ -112,35 +112,35 @@
   
       onMounted(() => {
         document.documentElement.addEventListener('ColorSchemeChange', () => {
-          if (mainChartRef.value) {
-            mainChartRef.value.chart,
+          if (comparisonChartref.value) {
+            comparisonChartref.value.chart,
               (options.scales.x.grid.borderColor = getStyle(
                 '--cui-border-color-translucent',
               ))
-            mainChartRef.value.chart,
+              comparisonChartref.value.chart,
               (options.scales.x.grid.color = getStyle(
                 '--cui-border-color-translucent',
               ))
-            mainChartRef.value.chart,
+              comparisonChartref.value.chart,
               (options.scales.x.ticks.color = getStyle('--cui-body-color'))
-            mainChartRef.value.chart,
+              comparisonChartref.value.chart,
               (options.scales.y.grid.borderColor = getStyle(
                 '--cui-border-color-translucent',
               ))
-            mainChartRef.value.chart,
+              comparisonChartref.value.chart,
               (options.scales.y.grid.color = getStyle(
                 '--cui-border-color-translucent',
               ))
-            mainChartRef.value.chart,
+              comparisonChartref.value.chart,
               (options.scales.y.ticks.color = getStyle('--cui-body-color'))
-            mainChartRef.value.chart.update()
+              comparisonChartref.value.chart.update()
           }
         })
       })
   
       return {
         data,
-        mainChartRef,
+        comparisonChartref,
         options,
       }
     },
