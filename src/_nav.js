@@ -8,7 +8,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Filter Insights',
-    to: '/dashboard',
+    to: '/insights',
     icon: 'cil-speedometer',
   }
   

@@ -27,7 +27,7 @@ const routes = [
         name: 'InsightsFilter',
         component: () =>
           import(
-            '@/views/dashboard/insightsFilter.vue'
+            '@/views/insights/insightsFilter.vue'
           ),
       },
       {
