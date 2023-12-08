@@ -3,6 +3,9 @@
     <h1>New Page</h1>
     <p>This is the content of the new page.</p>
   </div>
+  <div>
+    <MainChart style="height: 400px; max-height: 400px; margin-top: 40px" />
+    </div>
 </template>
 
 <script>
