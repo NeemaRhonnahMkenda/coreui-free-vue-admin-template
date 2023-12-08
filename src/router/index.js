@@ -23,8 +23,8 @@ const routes = [
           ),
       },
       {
-        path: '/insightsFilter',
-        name: 'InsightsFilter',
+        path: '/insights',
+        name: 'insightsFilter',
         component: () =>
           import(
             '@/views/insights/insightsFilter.vue'
