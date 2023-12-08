@@ -5,6 +5,11 @@ export default [
     to: '/dashboard',
     icon: 'cil-speedometer',
   },
-  
+  {
+    component: 'CNavItem',
+    name: 'Filter Insights',
+    to: '/dashboard',
+    icon: 'cil-speedometer',
+  }
   
 ]

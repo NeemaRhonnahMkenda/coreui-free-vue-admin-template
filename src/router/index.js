@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import DefaultLayout from '@/layouts/DefaultLayout'
 
+
 const routes = [
   {
     path: '/',
@@ -19,6 +20,14 @@ const routes = [
         component: () =>
           import(
             /* webpackChunkName: "dashboard" */ '@/views/dashboard/Dashboard.vue'
+          ),
+      },
+      {
+        path: '/insightsFilter',
+        name: 'InsightsFilter',
+        component: () =>
+          import(
+            '@/views/dashboard/insightsFilter.vue'
           ),
       },
       {
